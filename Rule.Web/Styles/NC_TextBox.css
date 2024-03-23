@@ -1,0 +1,90 @@
+﻿/*
+    Created By  : Erwin Wibowo Harjono
+    Date        : March 07 2011
+    Purpose     : to modifying the visual look of New Confins's controls
+    Notes       : Not yet tested on Internet Explorer
+*/
+
+.txtInput
+{
+    height: 13px;
+    width: 190px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    border: 1px solid gray;
+}
+/*
+.txtMandatory
+{
+    height: 13px;
+    width: 150px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    background-color: #DAF2F7;
+    border: 1px solid gray;
+}*/
+.txtShortInputStyle
+{
+    height: 13px;
+    width: 70px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    border: 1px solid gray;
+}
+.txtMedInputStyle
+{
+    height: 13px;
+    width: 150px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    border: 1px solid gray;
+}
+.txtLongInputStyle
+{
+    height: 13px;
+    width: 260px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    border: 1px solid gray;
+}
+.txtShortPercentageStyle
+{
+    height: 13px;
+    width: 50px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    border: 1px solid gray;
+}
+.txtMedPercentageStyle
+{
+    height: 13px;
+    width: 80px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    border: 1px solid gray;
+}
+.txtNotesStyle
+{
+    height: 50px;
+    width: 300px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    border: 1px solid gray;
+}
+.txtAmountStyle
+{
+    height: 13px;
+    width: 100px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    border: 1px solid gray;
+}

@@ -1,0 +1,57 @@
+﻿/*
+    Creator : Erwin Wibowo Harjono
+    Date    : 15 July 2010
+    Purpose : To creating modal window
+    Notes   : 
+*/
+
+.overlay
+{
+    visibility: hidden;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.modalDialogContent
+{
+    background-color: White;
+    margin: 0px auto;
+    position: absolute;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0 20px 10px 20px;
+    min-width: 640px;
+    min-height: 480px;
+    text-align: left;
+    -moz-box-shadow: 0 0 4px black;
+    -webkit-box-shadow: 0 -1px 1px gray;
+    box-shadow: 0 -1px 1px gray;
+}
+
+.modalDialogContent .close
+{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    text-decoration: none;
+}
+
+.ulModalDialog
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.liModalDialog
+{
+    margin: 0;
+    padding: 0;
+}

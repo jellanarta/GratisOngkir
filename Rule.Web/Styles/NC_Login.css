@@ -1,0 +1,105 @@
+﻿/*
+    Creator : Erwin Wibowo Harjono
+    Date    : 15 July 2010
+    Purpose : To modifying the visual look of New Confins Login Screen's Page
+    Notes   : Not yet tested on Internet Explorer
+*/
+@import "NC_Button.css";
+@import "NC_ModalWindows.css";
+@import "NC_Grid.css";
+*
+{
+    font-family: Verdana;
+    font-size: 13px;
+}
+body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+h1
+{
+    font-size: 15px;
+    color: Gray;
+}
+a:visited
+{
+    outline: none;
+}
+#loginFrame
+{
+    float: left;
+    height: 300px;
+    right: 10px;
+    bottom: 75px;
+    border-left: 1px outset black;
+    padding: 100px 50px;
+    list-style: none;
+    display: none;
+    position: absolute;
+}
+#loginFrame li
+{
+    padding: 5px;
+    display: block;
+}
+#loginFrame .loginText
+{
+    float: left;
+    text-align: left;
+    font-weight: bold;
+}
+#loginFrame span.loginText
+{
+    word-wrap: break-word;
+    width: 300px;
+}
+#loginFrame input
+{
+    margin-top: 5px;
+    width: 300px;
+}
+#loginFrame img
+{
+    padding: 5px;
+}
+#loginFrame .StdLink
+{
+    color: Gray;
+    text-decoration: none;
+    font-weight: bold;
+}
+#imgLogin
+{
+}
+#compLogo
+{
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 5px;
+}
+#compLogo a img
+{
+    border: 0;
+}
+#copyright
+{
+    display: none;
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 11px;
+}
+#overlay a
+{
+    text-decoration: none;
+    color: gray;
+}
+#overlay a:hover
+{
+    color: Black;
+}

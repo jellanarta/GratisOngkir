@@ -1,0 +1,62 @@
+﻿body
+{
+    font-family: Verdana;
+    font-size: 13px;
+    color: #4F4F4F;
+    padding: 0;
+    margin: 0;
+}
+/* =================================================================================================
+    Setting untuk Tree Menu */
+.treeModuleList
+{
+    list-style-type: none;
+    text-decoration: none;
+    color: White;
+    margin: 1px 0px;
+    text-align: center;
+    background-color: #06799F;
+    background-image: -moz-linear-gradient(100% 80% 90deg, #024E68, #06799F);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#06799F), to(#024E68));
+}
+.treeModuleList a
+{
+    display: block;
+    left: 0;
+    right: 0;
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    max-width: 200px;
+    font-size: small;
+    margin: 0;
+    outline: none;
+}
+.treeModuleList a:hover
+{
+    background-color: rgba(255,255,255,0.2);
+}
+.treeModuleTree
+{
+    min-height: 300px; 
+}
+.treeModuleListContainer
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    max-height: 100px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.ddlInput
+{
+    width: 200px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    margin-top: 2px;
+}
+/* =================================================================================================
+    Akhir Setting untuk Tree Menu */

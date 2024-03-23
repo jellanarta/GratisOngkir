@@ -1,0 +1,83 @@
+﻿/*
+    Creator : Erwin Wibowo Harjono
+    Date    : 15 July 2010
+    Purpose : To modifying the visual look of New Confins Gridview's
+    Notes   : 
+*/
+.mGrid
+{
+    width: 98%;
+    background-color: #fff;
+    margin: 0 auto;
+    border: 1px solid #c1c1c1;
+    border-top: 0;
+    border-collapse: collapse;
+}
+.mGrid td
+{
+    border: 1px solid #c1c1c1;
+    border: 1px 0px;
+    color: #4F4F4F;
+}
+.mGrid td input[type="image"]
+{    
+    border-left : 1px inset #e6e8e8;
+    padding: 0 2px;
+}
+.mGrid td input[type="image"]:first-child
+{
+    border:0;
+}
+.mGrid th
+{
+    padding: 2px 2px;
+    color: #fff;
+    background-color: #024E68;
+    background-image: -moz-linear-gradient(100% 80% 90deg, #024E68, #06799F);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#06799F), to(#024E68));
+    border-left: solid 1px #c1c1c1;
+    font-size: 0.9em;
+}
+.mGrid th a
+{
+    color: #fff;
+    text-decoration: none;
+}
+.mGrid .alt
+{
+    background-color: #E6F0F2;
+}
+.pager
+{
+    width: 98%;
+    background-color: #024E68; /*#438FA3;*/
+    background-image: -moz-linear-gradient(100% 80% 90deg, #024E68, #06799F);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#06799F), to(#024E68));
+    color: White;
+    margin: 0 auto;
+    font-family: Verdana;
+    font-size: 14px;
+    border: 1px solid #c1c1c1;
+    position: relative;
+    padding: 0;
+}
+.pager a
+{
+    padding: 0 5px;
+    font-weight: bold;
+    color: White;
+    text-decoration: none;
+}
+.pager a:hover
+{
+    color: #8ded00;
+}
+.gridHeaderTitle
+{
+    color: White;
+}
+.pager .rightLink
+{
+    float: right;
+}
+

@@ -1,0 +1,96 @@
+﻿.notificationPopup
+{
+    border: 1px solid #000000;
+    padding: 0;
+    margin-bottom: 20px;
+    margin-right: 5px;
+    display: none;
+    width: 300px;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 -1px 1px gray;
+    -webkit-box-shadow: 0 -1px 1px gray;
+    box-shadow: 0 0 3px black;
+    background-color: #0D56A6;
+    background-image: -moz-linear-gradient(100% 80% 90deg, #024E68, #06799F);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#06799F), to(#024E68));
+    z-index: 9999999;
+}
+
+.notifTitle
+{
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    background-color: White;
+    color: black;
+    font-weight: bold;
+    padding: 0 3px;
+    margin: 0;
+    border-bottom: 1px solid black;
+}
+
+.notifContainer
+{
+    padding: 5px;
+    width: 100%;
+}
+
+.notifContainer *
+{
+    color: White;
+    font-size: 10px;
+}
+
+.notifDate
+{
+    width: 290px;
+    display: block;
+    text-align: right;
+}
+
+.notifMessage
+{
+    width: 290px;
+}
+
+.messageLink
+{
+    color: Yellow;
+}
+
+.separator
+{
+    border: 0;
+    border-bottom: 1px solid gray;
+    width: 290px;
+    margin: 3px 0;
+}
+
+.notifNavigation
+{
+    display: inline-block;
+    width: 142px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.notifNavigation:hover
+{
+    color: Yellow;
+}
+
+.closeNotif
+{
+    right: 0;
+    top: 0;
+    position: absolute;
+    z-index: 9999;
+    text-decoration: none;
+    color: Blue;
+    padding: 0 4px 2px 2px;
+}
+

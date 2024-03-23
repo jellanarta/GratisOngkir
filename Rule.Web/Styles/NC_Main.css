@@ -1,0 +1,282 @@
+﻿/*
+    Created By  : Erwin Wibowo Harjono
+    Date        : 16 July 2010
+    Purpose     : to modifying the visual look of New Confins AM_Main's page
+    Notes       : Not yet tested on Internet Explorer
+*/
+@import "NC_ModalWindows.css";
+@import "NC_Grid.css";
+@import "NC_Notification.css";
+*
+{
+    font-family: Verdana;
+    font-size: 11px;
+}
+body
+{
+    height: 100%;
+    background-color: #60B9CE;
+}
+div#header
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 30px;
+    width: 100%;
+    background-color: White;
+}
+div#header #navMenu #navLogout
+{
+    background: transparent url(../Images/logout.gif) no-repeat left center;
+    padding-left: 20px;
+}
+div#header #navMenu #navHome
+{
+    background: transparent url(../Images/home.gif) no-repeat left center;
+    padding-left: 20px;
+}
+div#header #navMenu #navSetting
+{
+    background: transparent url(../Images/setting.gif) no-repeat left center;
+    padding-left: 20px;
+}
+div#header span a img
+{
+    border: 0;
+}
+div#header #navMenu
+{
+    float: right;
+}
+div#header #navMenu a
+{
+    text-decoration: none;
+    border-left: 1px outset gray;
+    color: #676767;
+    font-weight: bold;
+    padding: 0 10px;
+}
+div#header #navMenu a:first-child
+{
+    border: 0;
+}
+.businessDate
+{
+    margin: 0;
+    padding: 2px 10px;
+    float: right;
+    color: #676767;
+}
+div#header #userDetails
+{
+    position: relative;
+    top: -2px;
+}
+div#main
+{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    margin: 2px 0 2px 0;
+    width: 100%;
+    background-color: White;
+}
+div#main #toggle
+{
+    border: 0;
+    width: 25px;
+    float: left;
+    height: 100%;
+    background-color: #689AD3;
+    background-image: -moz-linear-gradient(100% 80% 180deg, #024E68, #06799F); /* Mozilla */
+    background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#06799F), to(#024E68)); /* Safari, Chrome */
+}
+div#main #toggle a div img
+{
+    border: 0;
+    padding-bottom: 20px;
+}
+div#main #toggle a
+{
+    outline: none;
+}
+div#main #toggle a:hover
+{
+    outline: none;
+}
+div#main #toggle a div #imgFavourite
+{
+    background: transparent url(../Images/FavouriteFolderIcon.png) no-repeat center bottom;
+}
+div#main #toggle a div
+{
+    padding: 50px 0;
+    border-bottom: 1px inset gray;
+}
+div#main #toggle a div:hover
+{
+    padding: 100px 0;
+}
+div#main #treeContainer
+{
+    border: 0;
+    border-right: 3px solid #689AD3;
+    width: 200px;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    left: 25px;
+    background-color: White;
+    display: none;
+}
+div#main #favouriteContainer
+{
+    border: 0;
+    border-right: 3px solid #689AD3;
+    width: 200px;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    left: 25px;
+    background-color: White;
+    display: none;
+}
+div#main #mainPage
+{
+    position: absolute;
+    height: 100%;
+    float: left;
+    border: 0;
+}
+.arrow
+{
+    position: relative;
+    top: 10px;
+    left: 3px;
+    border-color: black transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    width: 0;
+    height: 0;
+}
+div#footer
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 15px;
+    width: 100%;
+    background-color: #0D56A6;
+    background-image: -moz-linear-gradient(100% 80% 90deg, #024E68, #06799F); /* Mozilla */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#06799F), to(#024E68)); /* Safari, Chrome */
+}
+div#footer label
+{
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 15px;
+    display: block;
+}
+div#bottomButtonContainer
+{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 15px;
+    z-index: 9999;
+    display: block;
+    line-height: 15px;
+}
+.notifLink
+{
+    text-decoration: none;
+    color: White;
+    float: right;
+    border-left: 1px outset black;
+    padding: 0 15px;
+}
+.notifLink:hover
+{
+    background-color: rgba(255,255,255,0.2);
+}
+/* 19 July 2010 */
+div#errorList
+{
+    position: fixed;
+    bottom: 17px;
+    left: 25px;
+    right: 0px;
+    border: 0;
+    background-color: #D42020;
+    height: 100px;
+    box-shadow: 5px -5px 10px #000;
+    -webkit-box-shadow: 0px -1px 2px #9B9D9E;
+    -moz-box-shadow: 0px -1px 2px #9B9D9E;
+    display: none;
+}
+div#errorTitle
+{
+    background-image: -moz-linear-gradient(100% 100% 90deg, #000000, #D42020); /* Mozilla */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#D42020), to(#000000)); /* Safari, Chrome */
+    color: White;
+    padding: 0 0 0 5px;
+}
+div#errorList a
+{
+    float: right;
+    color: White;
+    padding: 0 0 0 5px;
+    text-decoration: none;
+    outline: none;
+}
+#ltrErrorTitle
+{
+    padding: 0 0 0 5px;
+    color: White;
+}
+#lbErrorContent
+{
+    width: 100%;
+    height: 87px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    border: 1px solid gray;
+}
+#lbErrorContent option
+{
+    padding: 2px 0 0 10px;
+    color: Red;
+}
+div#notesContainer *
+{
+    margin: 0;
+    padding: 0;
+}
+div#notesContainer
+{
+    position: fixed;
+    bottom: 17px;
+    left: 25px;
+    right: 0px;
+    border: 0;
+    height: 250px;
+    display: none;
+    background-color: White;
+}
+#notesMessage
+{
+    margin-top: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 230px;
+    padding-left: 5px;
+}
+.help
+{
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}

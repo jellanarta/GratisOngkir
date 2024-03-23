@@ -1,0 +1,60 @@
+﻿*
+{
+    padding: 0;
+    margin: 0;
+}
+
+.partialDockZone
+{
+    float: left;
+    padding: 0 !important;
+    border: 0 !important;
+    margin: 5px !important;
+    min-height: 500px !important;
+}
+
+.fullDockZone
+{
+    padding: 0 !important;
+    border: 0 !important;
+    margin: 5px !important;
+}
+
+.zoneHighlighted
+{
+    background: #B4DEFA !important;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#B4DEFA)) !important;
+    background: -moz-linear-gradient(top, #ffffff, #B4DEFA) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#B4DEFA'); /* IE6, IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#B4DEFA')"; /* IE8 */
+}
+
+.dock
+{
+    margin: 0 0 5px 0 !important;
+}
+
+a.linkToDo
+{
+    color: Blue;
+}
+
+a.linkToDo:hover
+{
+    text-decoration: underline;
+}
+
+.MyCustomStyle
+{
+    width: 19px;
+    background: url(../Images/Maximize.gif) no-repeat !important;
+}
+.MyCustomStyle:hover
+{
+    width: 19px;
+    background: url(../Images/MaximizeHover.gif) no-repeat !important;
+}
+
+
+
+

@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B6289DA-AEBA-4A5E-8DF7-3CFA7FEFBDA9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rule.Web</RootNamespace>
+    <AssemblyName>Rule.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdIns.DataAccess">
+      <HintPath>..\Lib\AdIns.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="AdIns.DataModel">
+      <HintPath>..\Lib\AdIns.DataModel.dll</HintPath>
+    </Reference>
+    <Reference Include="AdIns.Service">
+      <HintPath>..\Lib\AdIns.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="AdIns.Util">
+      <HintPath>..\Lib\AdIns.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="AdIns.Workflow.Foundation.ClientAPI">
+      <HintPath>..\Lib.JustCopy\AdIns.Workflow.Foundation.ClientAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Confins.BusinessService.Common">
+      <HintPath>..\Lib\Confins.BusinessService.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Confins.Common">
+      <HintPath>..\Lib\Confins.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Confins.DataAccess.Common">
+      <HintPath>..\Lib\Confins.DataAccess.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Confins.DataModel.Common">
+      <HintPath>..\Lib\Confins.DataModel.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Confins.ReportScheduler">
+      <HintPath>..\Lib.JustCopy\Confins.ReportScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="Confins.Web.Security">
+      <HintPath>..\Lib\Confins.Web.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Confins.WebLib">
+      <HintPath>..\Lib\Confins.WebLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LicensingLibrary">
+      <HintPath>..\Lib.JustCopy\LicensingLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\Lib\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HomeScreen\HomeScreen.aspx" />
+    <Content Include="Images\add.gif" />
+    <Content Include="Images\AddFavourite.png" />
+    <Content Include="Images\AddRecord.gif" />
+    <Content Include="Images\bigstock.jpg" />
+    <Content Include="Images\cancel.gif" />
+    <Content Include="Images\close.gif" />
+    <Content Include="Images\confins.png" />
+    <Content Include="Images\confins_edited.gif" />
+    <Content Include="Images\Delete.gif" />
+    <Content Include="Images\Download.gif" />
+    <Content Include="Images\Download.png" />
+    <Content Include="Images\Edit.gif" />
+    <Content Include="Images\Favourite.png" />
+    <Content Include="Images\FavouriteFolderIcon.png" />
+    <Content Include="Images\FavouriteIcon.png" />
+    <Content Include="Images\finance.jpg" />
+    <Content Include="Images\finance500.gif" />
+    <Content Include="Images\financeGraphic.jpg" />
+    <Content Include="Images\help.gif" />
+    <Content Include="Images\home.gif" />
+    <Content Include="Images\Icon\IconBadStatus.gif" />
+    <Content Include="Images\Icon\IconBankAccount.gif" />
+    <Content Include="Images\Icon\IconBranch.gif" />
+    <Content Include="Images\Icon\IconBranchMember.gif" />
+    <Content Include="Images\Icon\IconDelete.gif" />
+    <Content Include="Images\Icon\IconEdit.gif" />
+    <Content Include="Images\Icon\IconEmployee.gif" />
+    <Content Include="Images\Icon\IconEmployee2.gif" />
+    <Content Include="Images\Icon\IconHome.gif" />
+    <Content Include="Images\Icon\IconLookup.gif" />
+    <Content Include="Images\Icon\IconNotes.gif" />
+    <Content Include="Images\Icon\IconOwner.gif" />
+    <Content Include="Images\Icon\IconProductOffering.gif" />
+    <Content Include="Images\Icon\IconRoles.gif" />
+    <Content Include="Images\Icon\IconSelect.gif" />
+    <Content Include="Images\Icon\IconSetting.gif" />
+    <Content Include="Images\Icon\IconSignature.gif" />
+    <Content Include="Images\JobTitle.png" />
+    <Content Include="Images\loading-circle.gif" />
+    <Content Include="Images\loading-horizontal.gif" />
+    <Content Include="Images\logo adins small 2.png" />
+    <Content Include="Images\logout.gif" />
+    <Content Include="Images\Maximize.gif" />
+    <Content Include="Images\MaximizeHover.gif" />
+    <Content Include="Images\Menu.png" />
+    <Content Include="Images\Model.jpg" />
+    <Content Include="Images\Refresh.gif" />
+    <Content Include="Images\save.gif" />
+    <Content Include="Images\setting.gif" />
+    <Content Include="Images\Spacer.gif" />
+    <Content Include="Images\unauthorized.png" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Main.aspx" />
+    <Content Include="Scripts\GenericLookupScript.js" />
+    <Content Include="Scripts\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.2.custom.min.js" />
+    <Content Include="Scripts\NCScript.js" />
+    <Content Include="Scripts\NCScript_DatePicker.js" />
+    <Content Include="Scripts\NCScript_Form.js" />
+    <Content Include="Scripts\NCScript_Login.js" />
+    <Content Include="Scripts\NCScript_LookUp.js" />
+    <Content Include="Scripts\NCScript_Main.js" />
+    <Content Include="Scripts\Window.js" />
+    <Content Include="Styles\jquery-ui-1.8.2.custom.css" />
+    <Content Include="Styles\NC_Button.css" />
+    <Content Include="Styles\NC_Dropdownlist.css" />
+    <Content Include="Styles\NC_Form.css" />
+    <Content Include="Styles\NC_Grid.css" />
+    <Content Include="Styles\NC_HomeScreen.css" />
+    <Content Include="Styles\NC_LoadingPanel.css" />
+    <Content Include="Styles\NC_Login.css" />
+    <Content Include="Styles\NC_Main.css" />
+    <Content Include="Styles\NC_ModalWindows.css" />
+    <Content Include="Styles\NC_Notification.css" />
+    <Content Include="Styles\NC_Table.css" />
+    <Content Include="Styles\NC_TextBox.css" />
+    <Content Include="Styles\NC_Toolbar.css" />
+    <Content Include="Styles\NC_Tooltips.css" />
+    <Content Include="Styles\NC_Tree.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebUserControl\GenericLookup\DynamicLookup.ascx" />
+    <Content Include="WebUserControl\GenericLookup\LookupBase.ascx" />
+    <Content Include="WebUserControl\GenericLookup\LookupBaseSimple.ascx" />
+    <Content Include="WebUserControl\Search\UCSearch.ascx" />
+    <Content Include="WebUserControl\Search\UCSearchSimple.ascx" />
+    <Content Include="WebUserControl\UCDatePicker.ascx" />
+    <Content Include="WebUserControl\UCGridFooter.ascx" />
+    <Content Include="WebUserControl\UCGridHeader.ascx" />
+    <Content Include="WebUserControl\UCInputNumber.ascx" />
+    <Content Include="WebUserControl\UCLoadingPanel.ascx" />
+    <Content Include="WebUserControl\UcModalDialog.ascx" />
+    <Content Include="WebUserControl\UCModalDialog2.ascx" />
+    <Content Include="WebUserControl\UCReference.ascx" />
+    <Content Include="WebUserControl\UCSubSectionContainer.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\AspxAscxSource.cs" />
+    <Compile Include="Class\IApprovalScreenSource.cs" />
+    <Compile Include="Configurer\GenericLookupConfigurer.cs" />
+    <Compile Include="Configurer\InterfaceConfigurer.cs" />
+    <Compile Include="Configurer\ServicesConfigurer.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HomeScreen\HomeScreen.aspx.cs">
+      <DependentUpon>HomeScreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeScreen\HomeScreen.aspx.designer.cs">
+      <DependentUpon>HomeScreen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebLib\WebFormBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebLib\WebPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\GenericLookup\DynamicLookup.ascx.cs">
+      <DependentUpon>DynamicLookup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\GenericLookup\DynamicLookup.ascx.designer.cs">
+      <DependentUpon>DynamicLookup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\GenericLookup\GenericLookupData.cs" />
+    <Compile Include="WebUserControl\GenericLookup\GenericLookupScriptGenerator.cs" />
+    <Compile Include="WebUserControl\GenericLookup\LookupBase.ascx.cs">
+      <DependentUpon>LookupBase.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\GenericLookup\LookupBase.ascx.designer.cs">
+      <DependentUpon>LookupBase.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\GenericLookup\LookupBaseSimple.ascx.cs">
+      <DependentUpon>LookupBaseSimple.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\GenericLookup\LookupBaseSimple.ascx.designer.cs">
+      <DependentUpon>LookupBaseSimple.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\Search\DynamicSearchInitValue.cs" />
+    <Compile Include="WebUserControl\Search\DynamicSearchPropSpec.cs" />
+    <Compile Include="WebUserControl\Search\FixedSearchPropSpec.cs" />
+    <Compile Include="WebUserControl\Search\SearchControlParam.cs" />
+    <Compile Include="WebUserControl\Search\SearchPropSpec.cs" />
+    <Compile Include="WebUserControl\Search\UCSearch.ascx.cs">
+      <DependentUpon>UCSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\Search\UCSearch.ascx.designer.cs">
+      <DependentUpon>UCSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\Search\UCSearchSimple.ascx.cs">
+      <DependentUpon>UCSearchSimple.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\Search\UCSearchSimple.ascx.designer.cs">
+      <DependentUpon>UCSearchSimple.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UCDatePicker.ascx.cs">
+      <DependentUpon>UCDatePicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UCDatePicker.ascx.designer.cs">
+      <DependentUpon>UCDatePicker.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UCGridFooter.ascx.cs">
+      <DependentUpon>UCGridFooter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UCGridFooter.ascx.designer.cs">
+      <DependentUpon>UCGridFooter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UCGridHeader.ascx.cs">
+      <DependentUpon>UCGridHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UCGridHeader.ascx.designer.cs">
+      <DependentUpon>UCGridHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UCInputNumber.ascx.cs">
+      <DependentUpon>UCInputNumber.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UCInputNumber.ascx.designer.cs">
+      <DependentUpon>UCInputNumber.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UCLoadingPanel.ascx.cs">
+      <DependentUpon>UCLoadingPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UCLoadingPanel.ascx.designer.cs">
+      <DependentUpon>UCLoadingPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UcModalDialog.ascx.cs">
+      <DependentUpon>UcModalDialog.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UcModalDialog.ascx.designer.cs">
+      <DependentUpon>UcModalDialog.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UCModalDialog2.ascx.cs">
+      <DependentUpon>UCModalDialog2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UCModalDialog2.ascx.designer.cs">
+      <DependentUpon>UCModalDialog2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UCReference.ascx.cs">
+      <DependentUpon>UCReference.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UCReference.ascx.designer.cs">
+      <DependentUpon>UCReference.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UCSubSectionContainer.ascx.cs">
+      <DependentUpon>UCSubSectionContainer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UCSubSectionContainer.ascx.designer.cs">
+      <DependentUpon>UCSubSectionContainer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rule.BusinessService.Common\Rule.BusinessService.Common.csproj">
+      <Project>{7C88A468-B02A-4830-B9CC-A6B7938330DF}</Project>
+      <Name>Rule.BusinessService.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rule.Common\Rule.Common.csproj">
+      <Project>{3E4F5D92-9868-4F3F-A2D5-99AD6D9CFDEF}</Project>
+      <Name>Rule.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rule.DataModel.Common\Rule.DataModel.Common.csproj">
+      <Project>{A9399F64-0C67-4F2E-8D11-0B76288B4166}</Project>
+      <Name>Rule.DataModel.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training.API\Training.API.csproj">
+      <Project>{E6AD7DE7-7450-435C-93BF-A42A079106E8}</Project>
+      <Name>Training.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training.BusinessService\Training.BusinessService.csproj">
+      <Project>{F9522EBA-7D09-4D3A-A9FF-374BB740EC33}</Project>
+      <Name>Training.BusinessService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training.DataAccess\Training.DataAccess.csproj">
+      <Project>{577F3BB1-F4C2-4928-B0ED-44FAFE2DC4C4}</Project>
+      <Name>Training.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training.DataModel\Training.DataModel.csproj">
+      <Project>{585B4615-22F6-4F0E-974E-559D88C4335A}</Project>
+      <Name>Training.DataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Unity-Formatter.config" />
+    <Content Include="Unity-GenericLookup.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Unity.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WebUserControl\Lookup\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1537</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

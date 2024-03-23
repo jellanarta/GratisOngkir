@@ -1,0 +1,110 @@
+﻿/*
+    Created By  : Erwin Wibowo Harjono
+    Date        : 16 July 2010
+    Purpose     : to modifying the visual look of New Confins AM_Main's page
+    Notes       : Not yet tested on Internet Explorer
+*/
+/*
+    Update :
+    19 July 2010: Creating Error List
+    1 September 2010: fixing table form css
+*/
+/*
+    Update:
+    17 Maret 2011: Creating Style for mandatory sign
+*/
+
+@import "NC_Toolbar.css";
+@import "NC_TextBox.css";
+@import "NC_Dropdownlist.css";
+@import "NC_Table.css";
+@import "NC_Button.css";
+@import "NC_Grid.css";
+@import "NC_Tooltips.css";
+*
+{
+    font-family: Verdana;
+    font-size: 11px;
+}
+html
+{
+    /*overflow-x:hidden;*/
+}
+body
+{
+    height: 100%;
+}
+.liButton a
+{
+    margin: 0 5px;
+    float: right;
+}
+#content
+{
+    position: absolute;
+    top: 45px;
+    width: 99%;
+}
+.subSection
+{
+    font-size: 12px;
+    font-weight: bolder;
+    border-bottom: 1px solid gray;
+    width: 99%;
+    margin: 0 5px 0 5px;
+    padding: 0 5px 0 0;
+    vertical-align: text-bottom;
+    line-height: 25px;
+}
+.subSection a
+{
+    padding: 0;
+    text-decoration: none;
+    color: Black;
+}
+.subSection .adSimLink
+{
+    float: right;
+    color: Gray;
+}
+.subSection .adSimLink:hover
+{
+    color: #06799F;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.subtitle
+{
+    height: 20px !important;
+    -moz-box-shadow: 0 0 1px #888;
+    -webkit-box-shadow: 0 0 1px#888;
+    box-shadow: 0 0 1px #888;
+    -moz-border-radius-bottomright: 25px 50px;
+    border-bottom-right-radius: 25px 50px;
+    font-weight: bold;
+    background-color: #46BBDB; /*9AD8DB background-image: -moz-linear-gradient(100% 80% 90deg, #64C9F5, #D1F4FF);     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#D1F4FF), to(#64C9F5));     border-bottom: 1px solid gray;*/
+}
+.datePicker
+{
+    height: 13px;
+    width: 100px;
+    font-family: Verdana;
+    font-size: 11px;
+    border: 1px solid gray;
+    color: #4F4F4F;
+}
+#unauthorizedContainer
+{
+    margin-top: 20px;
+    text-align: center;
+}
+#unauthorizedContainer .unauthorizedText
+{
+    font-size: x-large;
+}
+
+.mandatoryStyle
+{
+    color: Red;
+    font-weight: bold;
+}

@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MenuModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="MenuModelStoreContainer">
+          <EntitySet Name="REF_FOLDER" EntityType="MenuModel.Store.REF_FOLDER" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="REF_FORM" EntityType="MenuModel.Store.REF_FORM" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_REF_FOLDER_REF_FOLDER" Association="MenuModel.Store.FK_REF_FOLDER_REF_FOLDER">
+            <End Role="REF_FOLDER" EntitySet="REF_FOLDER" />
+            <End Role="REF_FOLDER1" EntitySet="REF_FOLDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REF_FORM_REF_FOLDER" Association="MenuModel.Store.FK_REF_FORM_REF_FOLDER">
+            <End Role="REF_FOLDER" EntitySet="REF_FOLDER" />
+            <End Role="REF_FORM" EntitySet="REF_FORM" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="REF_FOLDER">
+          <Key>
+            <PropertyRef Name="REF_FOLDER_ID" />
+          </Key>
+          <Property Name="REF_FOLDER_ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FOLDER_NAME" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="PARENT_ID" Type="bigint" />
+          <Property Name="HIERARCHY_NO" Type="int" Nullable="false" />
+          <Property Name="ORDER_NO" Type="int" Nullable="false" />
+          <Property Name="IS_HIDDEN" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="USR_UPD" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="DTM_UPD" Type="datetime" Nullable="false" />
+          <Property Name="USR_CRT" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="DTM_CRT" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REF_FORM">
+          <Key>
+            <PropertyRef Name="REF_FORM_ID" />
+          </Key>
+          <Property Name="REF_FORM_ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FORM_NAME" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="FORM_URL" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="REF_FOLDER_ID" Type="bigint" Nullable="false" />
+          <Property Name="ORDER_NO" Type="int" Nullable="false" />
+          <Property Name="IS_HIDDEN" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="USR_UPD" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="DTM_UPD" Type="datetime" Nullable="false" />
+          <Property Name="USR_CRT" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="DTM_CRT" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_REF_FOLDER_REF_FOLDER">
+          <End Role="REF_FOLDER" Type="MenuModel.Store.REF_FOLDER" Multiplicity="0..1" />
+          <End Role="REF_FOLDER1" Type="MenuModel.Store.REF_FOLDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_FOLDER">
+              <PropertyRef Name="REF_FOLDER_ID" />
+            </Principal>
+            <Dependent Role="REF_FOLDER1">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REF_FORM_REF_FOLDER">
+          <End Role="REF_FOLDER" Type="MenuModel.Store.REF_FOLDER" Multiplicity="1" />
+          <End Role="REF_FORM" Type="MenuModel.Store.REF_FORM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_FOLDER">
+              <PropertyRef Name="REF_FOLDER_ID" />
+            </Principal>
+            <Dependent Role="REF_FORM">
+              <PropertyRef Name="REF_FOLDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MenuModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="MenuEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="RefFolders" EntityType="MenuModel.RefFolder" />
+          <EntitySet Name="RefForms" EntityType="MenuModel.RefForm" />
+          <AssociationSet Name="FK_REF_FOLDER_REF_FOLDER" Association="MenuModel.FK_REF_FOLDER_REF_FOLDER">
+            <End Role="REF_FOLDER" EntitySet="RefFolders" />
+            <End Role="REF_FOLDER1" EntitySet="RefFolders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REF_FORM_REF_FOLDER" Association="MenuModel.FK_REF_FORM_REF_FOLDER">
+            <End Role="REF_FOLDER" EntitySet="RefFolders" />
+            <End Role="REF_FORM" EntitySet="RefForms" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="RefFolder">
+          <Key>
+            <PropertyRef Name="RefFolderId" />
+          </Key>
+          <Property Name="RefFolderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="FolderName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ParentId" Type="Int64" />
+          <Property Name="HierarchyNo" Type="Int32" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="IsHidden" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="ChildRefFolders" Relationship="MenuModel.FK_REF_FOLDER_REF_FOLDER" FromRole="REF_FOLDER" ToRole="REF_FOLDER1" />
+          <NavigationProperty Name="ParentRefFolder" Relationship="MenuModel.FK_REF_FOLDER_REF_FOLDER" FromRole="REF_FOLDER1" ToRole="REF_FOLDER" />
+          <NavigationProperty Name="RefForms" Relationship="MenuModel.FK_REF_FORM_REF_FOLDER" FromRole="REF_FOLDER" ToRole="REF_FORM" />
+          <Property Name="LastUserTimestamp" Type="MenuModel.UserTimestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RefForm">
+          <Key>
+            <PropertyRef Name="RefFormId" />
+          </Key>
+          <Property Name="RefFormId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="FormName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="FormURL" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="RefFolderId" Type="Int64" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="IsHidden" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="RefFolder" Relationship="MenuModel.FK_REF_FORM_REF_FOLDER" FromRole="REF_FORM" ToRole="REF_FOLDER" />
+          <Property Name="LastUserTimestamp" Type="MenuModel.UserTimestamp" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_REF_FOLDER_REF_FOLDER">
+          <End Role="REF_FOLDER" Type="MenuModel.RefFolder" Multiplicity="0..1" />
+          <End Role="REF_FOLDER1" Type="MenuModel.RefFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_FOLDER">
+              <PropertyRef Name="RefFolderId" />
+            </Principal>
+            <Dependent Role="REF_FOLDER1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REF_FORM_REF_FOLDER">
+          <End Role="REF_FOLDER" Type="MenuModel.RefFolder" Multiplicity="1" />
+          <End Role="REF_FORM" Type="MenuModel.RefForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_FOLDER">
+              <PropertyRef Name="RefFolderId" />
+            </Principal>
+            <Dependent Role="REF_FORM">
+              <PropertyRef Name="RefFolderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="UserTimestamp">
+          <Property Type="String" Name="UsrUpd" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DtmUpd" Nullable="false" />
+          <Property Type="String" Name="UsrCrt" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DtmCrt" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="MenuModelStoreContainer" CdmEntityContainer="MenuEntities">
+          <EntitySetMapping Name="RefFolders"><EntityTypeMapping TypeName="MenuModel.RefFolder"><MappingFragment StoreEntitySet="REF_FOLDER">
+            <ScalarProperty Name="RefFolderId" ColumnName="REF_FOLDER_ID" />
+            <ScalarProperty Name="FolderName" ColumnName="FOLDER_NAME" />
+            <ScalarProperty Name="ParentId" ColumnName="PARENT_ID" />
+            <ScalarProperty Name="HierarchyNo" ColumnName="HIERARCHY_NO" />
+            <ScalarProperty Name="OrderNo" ColumnName="ORDER_NO" />
+            <ScalarProperty Name="IsHidden" ColumnName="IS_HIDDEN" />
+                <ComplexProperty Name="LastUserTimestamp">
+                  <ScalarProperty Name="DtmCrt" ColumnName="DTM_CRT" />
+                  <ScalarProperty Name="UsrCrt" ColumnName="USR_CRT" />
+                  <ScalarProperty Name="DtmUpd" ColumnName="DTM_UPD" />
+                  <ScalarProperty Name="UsrUpd" ColumnName="USR_UPD" />
+                </ComplexProperty>
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RefForms"><EntityTypeMapping TypeName="MenuModel.RefForm"><MappingFragment StoreEntitySet="REF_FORM">
+            <ScalarProperty Name="RefFormId" ColumnName="REF_FORM_ID" />
+            <ScalarProperty Name="FormName" ColumnName="FORM_NAME" />
+            <ScalarProperty Name="FormURL" ColumnName="FORM_URL" />
+            <ScalarProperty Name="RefFolderId" ColumnName="REF_FOLDER_ID" />
+            <ScalarProperty Name="OrderNo" ColumnName="ORDER_NO" />
+            <ScalarProperty Name="IsHidden" ColumnName="IS_HIDDEN" />
+            <ComplexProperty Name="LastUserTimestamp">
+              <ScalarProperty Name="DtmCrt" ColumnName="DTM_CRT" />
+              <ScalarProperty Name="UsrCrt" ColumnName="USR_CRT" />
+              <ScalarProperty Name="DtmUpd" ColumnName="DTM_UPD" />
+              <ScalarProperty Name="UsrUpd" ColumnName="USR_UPD" />
+            </ComplexProperty>
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MenuEntitiesSQL">
+        <EntityTypeShape EntityType="MenuModel.RefFolder" Width="1.5" PointX="0.75" PointY="1" Height="3.5186979166666665" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenuModel.RefForm" Width="1.5" PointX="4" PointY="1.25" Height="3.1340950520833322" IsExpanded="true" />
+        <AssociationConnector Association="MenuModel.FK_REF_FOLDER_REF_FOLDER" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.2819230769230767" PointY="4.5186979166666665" />
+          <ConnectorPoint PointX="1.2819230769230767" PointY="4.7686979166666665" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="4.7686979166666665" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="4.5186979166666665" />
+        </AssociationConnector>
+        <AssociationConnector Association="MenuModel.FK_REF_FORM_REF_FOLDER" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.8170475260416659" />
+          <ConnectorPoint PointX="4" PointY="2.8170475260416659" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

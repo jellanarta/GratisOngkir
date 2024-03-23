@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TrainingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="BOOK">
+          <Key>
+            <PropertyRef Name="REF_BOOK_ID" />
+          </Key>
+          <Property Name="REF_BOOK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE" Type="varchar" MaxLength="50" />
+          <Property Name="AUTHOR" Type="varchar" MaxLength="50" />
+          <Property Name="YEAR" Type="int" />
+          <Property Name="STOCK" Type="int" />
+          <Property Name="PRICE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="USR_CRT" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_CRT" Type="datetime" />
+          <Property Name="USR_UPD" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_UPD" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BOOK_TRANSACTION_D">
+          <Key>
+            <PropertyRef Name="BOOK_TRANSACTION_D_ID" />
+          </Key>
+          <Property Name="BOOK_TRANSACTION_D_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BOOK_TRANSACTION_H_ID" Type="bigint" Nullable="false" />
+          <Property Name="SEQ_NO" Type="int" />
+          <Property Name="REF_BOOK_ID" Type="bigint" Nullable="false" />
+          <Property Name="QTY" Type="int" />
+          <Property Name="PRICE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="RETURN_DT" Type="datetime" />
+          <Property Name="NOTES" Type="varchar" MaxLength="50" />
+          <Property Name="USR_CRT" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_CRT" Type="datetime" />
+          <Property Name="USR_UPD" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_UPD" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BOOK_TRANSACTION_H">
+          <Key>
+            <PropertyRef Name="BOOK_TRANSACTION_H_ID" />
+          </Key>
+          <Property Name="BOOK_TRANSACTION_H_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUST_ID" Type="bigint" Nullable="false" />
+          <Property Name="TRANSACTION_NO" Type="varchar" MaxLength="50" />
+          <Property Name="TRANSACTION_DATE" Type="datetime" />
+          <Property Name="TOTAL_PRICE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NOTES" Type="varchar" MaxLength="50" />
+          <Property Name="USR_CRT" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_CRT" Type="datetime" />
+          <Property Name="USR_UPD" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_UPD" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CUST">
+          <Key>
+            <PropertyRef Name="CUST_ID" />
+          </Key>
+          <Property Name="CUST_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUST_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="GENDER" Type="char" MaxLength="1" />
+          <Property Name="BIRTH_DATE" Type="datetime" />
+          <Property Name="BIRTH_PLACE" Type="varchar" MaxLength="50" />
+          <Property Name="MOTHER_MAIDEN_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="USR_CRT" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_CRT" Type="datetime" />
+          <Property Name="USR_UPD" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_UPD" Type="datetime" />
+        </EntityType>
+        <EntityType Name="REF_BOOK">
+          <Key>
+            <PropertyRef Name="REF_BOOK_ID" />
+          </Key>
+          <Property Name="REF_BOOK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AUTHOR_ID" Type="bigint" />
+          <Property Name="BOOK_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="BOOK_NO" Type="varchar" MaxLength="50" />
+          <Property Name="RELEASE_DATE" Type="datetime" />
+          <Property Name="BOOK_PAGE" Type="int" />
+          <Property Name="BOOK_PRICE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="USR_CRT" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_CRT" Type="datetime" />
+          <Property Name="USR_UPD" Type="varchar" MaxLength="50" />
+          <Property Name="DTM_UPD" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__BOOK_TRAN__BOOK___32E0915F">
+          <End Role="BOOK_TRANSACTION_H" Type="Self.BOOK_TRANSACTION_H" Multiplicity="1" />
+          <End Role="BOOK_TRANSACTION_D" Type="Self.BOOK_TRANSACTION_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOK_TRANSACTION_H">
+              <PropertyRef Name="BOOK_TRANSACTION_H_ID" />
+            </Principal>
+            <Dependent Role="BOOK_TRANSACTION_D">
+              <PropertyRef Name="BOOK_TRANSACTION_H_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOK_TRAN__CUST___300424B4">
+          <End Role="CUST" Type="Self.CUST" Multiplicity="1" />
+          <End Role="BOOK_TRANSACTION_H" Type="Self.BOOK_TRANSACTION_H" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUST">
+              <PropertyRef Name="CUST_ID" />
+            </Principal>
+            <Dependent Role="BOOK_TRANSACTION_H">
+              <PropertyRef Name="CUST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrainingModelStoreContainer">
+          <EntitySet Name="BOOK" EntityType="Self.BOOK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOOK_TRANSACTION_D" EntityType="Self.BOOK_TRANSACTION_D" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOOK_TRANSACTION_H" EntityType="Self.BOOK_TRANSACTION_H" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUST" EntityType="Self.CUST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REF_BOOK" EntityType="Self.REF_BOOK" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BOOK_TRAN__BOOK___32E0915F" Association="Self.FK__BOOK_TRAN__BOOK___32E0915F">
+            <End Role="BOOK_TRANSACTION_H" EntitySet="BOOK_TRANSACTION_H" />
+            <End Role="BOOK_TRANSACTION_D" EntitySet="BOOK_TRANSACTION_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOK_TRAN__CUST___300424B4" Association="Self.FK__BOOK_TRAN__CUST___300424B4">
+            <End Role="CUST" EntitySet="CUST" />
+            <End Role="BOOK_TRANSACTION_H" EntitySet="BOOK_TRANSACTION_H" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrainingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="BookTransactionD">
+          <Key>
+            <PropertyRef Name="BookTransactionDId" />
+          </Key>
+          <Property Name="BookTransactionDId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookTransactionHId" Type="Int64" Nullable="false" />
+          <Property Name="SeqNo" Type="Int32" />
+          <Property Name="RefBookId" Type="Int64" Nullable="false" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ReturnDt" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BookTransactionH" Relationship="Self.FK__BOOK_TRAN__BOOK___32E0915F" FromRole="BOOK_TRANSACTION_D" ToRole="BOOK_TRANSACTION_H" />
+          <Property Name="LastUserTimestamp" Nullable="false" Type="TrainingModel.UserTimestamp" />
+        </EntityType>
+        <EntityType Name="BookTransactionH">
+          <Key>
+            <PropertyRef Name="BookTransactionHId" />
+          </Key>
+          <Property Name="BookTransactionHId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustId" Type="Int64" Nullable="false" />
+          <Property Name="TransactionNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BookTransactionD" Relationship="Self.FK__BOOK_TRAN__BOOK___32E0915F" FromRole="BOOK_TRANSACTION_H" ToRole="BOOK_TRANSACTION_D" />
+          <NavigationProperty Name="Cust" Relationship="Self.FK__BOOK_TRAN__CUST___300424B4" FromRole="BOOK_TRANSACTION_H" ToRole="CUST" />
+          <Property Name="LastUserTimestamp" Nullable="false" Type="TrainingModel.UserTimestamp" />
+        </EntityType>
+        <EntityType Name="Cust">
+          <Key>
+            <PropertyRef Name="CustId" />
+          </Key>
+          <Property Name="CustId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="BirthPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MotherMaidenName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BookTransactionH" Relationship="Self.FK__BOOK_TRAN__CUST___300424B4" FromRole="CUST" ToRole="BOOK_TRANSACTION_H" />
+          <Property Name="LastUserTimestamp" Type="TrainingModel.UserTimestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RefBook">
+          <Key>
+            <PropertyRef Name="RefBookId" />
+          </Key>
+          <Property Name="RefBookId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorId" Type="Int64" />
+          <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BookNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReleaseDate" Type="DateTime" Precision="3" />
+          <Property Name="BookPage" Type="Int32" />
+          <Property Name="BookPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LastUserTimestamp" Nullable="false" Type="TrainingModel.UserTimestamp" />
+        </EntityType>
+        <Association Name="FK__BOOK_TRAN__BOOK___32E0915F">
+          <End Role="BOOK_TRANSACTION_H" Type="TrainingModel.BookTransactionH" Multiplicity="1" />
+          <End Role="BOOK_TRANSACTION_D" Type="TrainingModel.BookTransactionD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOK_TRANSACTION_H">
+              <PropertyRef Name="BookTransactionHId" />
+            </Principal>
+            <Dependent Role="BOOK_TRANSACTION_D">
+              <PropertyRef Name="BookTransactionHId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOK_TRAN__CUST___300424B4">
+          <End Role="CUST" Type="TrainingModel.Cust" Multiplicity="1" />
+          <End Role="BOOK_TRANSACTION_H" Type="TrainingModel.BookTransactionH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUST">
+              <PropertyRef Name="CustId" />
+            </Principal>
+            <Dependent Role="BOOK_TRANSACTION_H">
+              <PropertyRef Name="CustId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrainingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookTransactionDs" EntityType="TrainingModel.BookTransactionD" />
+          <EntitySet Name="BookTransactionHs" EntityType="TrainingModel.BookTransactionH" />
+          <EntitySet Name="Custs" EntityType="TrainingModel.Cust" />
+          <EntitySet Name="RefBooks" EntityType="TrainingModel.RefBook" />
+          <AssociationSet Name="FK__BOOK_TRAN__BOOK___32E0915F" Association="Self.FK__BOOK_TRAN__BOOK___32E0915F">
+            <End Role="BOOK_TRANSACTION_H" EntitySet="BookTransactionHs" />
+            <End Role="BOOK_TRANSACTION_D" EntitySet="BookTransactionDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOK_TRAN__CUST___300424B4" Association="Self.FK__BOOK_TRAN__CUST___300424B4">
+            <End Role="CUST" EntitySet="Custs" />
+            <End Role="BOOK_TRANSACTION_H" EntitySet="BookTransactionHs" />
+          </AssociationSet>
+          <EntitySet Name="Books" EntityType="TrainingModel.Book" />
+        </EntityContainer>
+        <ComplexType Name="UserTimestamp">
+          <Property Type="String" Name="UsrCrt" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DtmCrt" Precision="3" />
+          <Property Type="String" Name="UsrUpd" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DtmUpd" Precision="3" />
+        </ComplexType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="RefBookId" />
+          </Key>
+          <Property Name="RefBookId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LastUserTimestamp" Type="TrainingModel.UserTimestamp" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TrainingModelStoreContainer" CdmEntityContainer="TrainingEntities">
+          <EntitySetMapping Name="BookTransactionDs">
+            <EntityTypeMapping TypeName="TrainingModel.BookTransactionD">
+              <MappingFragment StoreEntitySet="BOOK_TRANSACTION_D">
+                <ScalarProperty Name="BookTransactionDId" ColumnName="BOOK_TRANSACTION_D_ID" />
+                <ScalarProperty Name="BookTransactionHId" ColumnName="BOOK_TRANSACTION_H_ID" />
+                <ScalarProperty Name="SeqNo" ColumnName="SEQ_NO" />
+                <ScalarProperty Name="RefBookId" ColumnName="REF_BOOK_ID" />
+                <ScalarProperty Name="Qty" ColumnName="QTY" />
+                <ScalarProperty Name="Price" ColumnName="PRICE" />
+                <ScalarProperty Name="ReturnDt" ColumnName="RETURN_DT" />
+                <ScalarProperty Name="Notes" ColumnName="NOTES" />
+                <ComplexProperty Name="LastUserTimestamp">
+                  <ScalarProperty Name="DtmUpd" ColumnName="DTM_UPD" />
+                  <ScalarProperty Name="UsrUpd" ColumnName="USR_UPD" />
+                  <ScalarProperty Name="DtmCrt" ColumnName="DTM_CRT" />
+                  <ScalarProperty Name="UsrCrt" ColumnName="USR_CRT" />
+                </ComplexProperty>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookTransactionHs">
+            <EntityTypeMapping TypeName="TrainingModel.BookTransactionH">
+              <MappingFragment StoreEntitySet="BOOK_TRANSACTION_H">
+                <ScalarProperty Name="BookTransactionHId" ColumnName="BOOK_TRANSACTION_H_ID" />
+                <ScalarProperty Name="CustId" ColumnName="CUST_ID" />
+                <ScalarProperty Name="TransactionNo" ColumnName="TRANSACTION_NO" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TRANSACTION_DATE" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TOTAL_PRICE" />
+                <ScalarProperty Name="Notes" ColumnName="NOTES" />
+                <ComplexProperty Name="LastUserTimestamp">
+                  <ScalarProperty Name="DtmUpd" ColumnName="DTM_UPD" />
+                  <ScalarProperty Name="DtmCrt" ColumnName="DTM_CRT" />
+                  <ScalarProperty Name="UsrUpd" ColumnName="USR_UPD" />
+                  <ScalarProperty Name="UsrCrt" ColumnName="USR_CRT" />
+                </ComplexProperty>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Custs">
+            <EntityTypeMapping TypeName="TrainingModel.Cust">
+              <MappingFragment StoreEntitySet="CUST">
+                <ScalarProperty Name="CustId" ColumnName="CUST_ID" />
+                <ScalarProperty Name="CustName" ColumnName="CUST_NAME" />
+                <ScalarProperty Name="Gender" ColumnName="GENDER" />
+                <ScalarProperty Name="BirthDate" ColumnName="BIRTH_DATE" />
+                <ScalarProperty Name="BirthPlace" ColumnName="BIRTH_PLACE" />
+                <ScalarProperty Name="MotherMaidenName" ColumnName="MOTHER_MAIDEN_NAME" />
+                <ComplexProperty Name="LastUserTimestamp">
+                  <ScalarProperty Name="DtmUpd" ColumnName="DTM_UPD" />
+                  <ScalarProperty Name="UsrUpd" ColumnName="USR_UPD" />
+                  <ScalarProperty Name="DtmCrt" ColumnName="DTM_CRT" />
+                  <ScalarProperty Name="UsrCrt" ColumnName="USR_CRT" />
+                </ComplexProperty>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefBooks">
+            <EntityTypeMapping TypeName="TrainingModel.RefBook">
+              <MappingFragment StoreEntitySet="REF_BOOK">
+                <ScalarProperty Name="RefBookId" ColumnName="REF_BOOK_ID" />
+                <ScalarProperty Name="AuthorId" ColumnName="AUTHOR_ID" />
+                <ScalarProperty Name="BookName" ColumnName="BOOK_NAME" />
+                <ScalarProperty Name="BookNo" ColumnName="BOOK_NO" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="RELEASE_DATE" />
+                <ScalarProperty Name="BookPage" ColumnName="BOOK_PAGE" />
+                <ScalarProperty Name="BookPrice" ColumnName="BOOK_PRICE" />
+                <ComplexProperty Name="LastUserTimestamp">
+                  <ScalarProperty Name="DtmUpd" ColumnName="DTM_UPD" />
+                  <ScalarProperty Name="DtmCrt" ColumnName="DTM_CRT" />
+                  <ScalarProperty Name="UsrUpd" ColumnName="USR_UPD" />
+                  <ScalarProperty Name="UsrCrt" ColumnName="USR_CRT" />
+                </ComplexProperty>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="TrainingModel.Book">
+              <MappingFragment StoreEntitySet="BOOK">
+                <ScalarProperty Name="Price" ColumnName="PRICE" />
+                <ScalarProperty Name="Stock" ColumnName="STOCK" />
+                <ScalarProperty Name="Year" ColumnName="YEAR" />
+                <ScalarProperty Name="Author" ColumnName="AUTHOR" />
+                <ScalarProperty Name="Title" ColumnName="TITLE" />
+                <ScalarProperty Name="RefBookId" ColumnName="REF_BOOK_ID" />
+                <ComplexProperty Name="LastUserTimestamp">
+                  <ScalarProperty Name="DtmUpd" ColumnName="DTM_UPD" />
+                  <ScalarProperty Name="UsrUpd" ColumnName="USR_UPD" />
+                  <ScalarProperty Name="DtmCrt" ColumnName="DTM_CRT" />
+                  <ScalarProperty Name="UsrCrt" ColumnName="USR_CRT" />
+                </ComplexProperty>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,28 @@
+﻿/*
+    Created By  : Erwin Wibowo Harjono
+    Date        : March 07 2011
+    Purpose     : to modifying the visual look of New Confins's controls
+    Notes       : Not yet tested on Internet Explorer
+*/
+.formTable
+{
+    margin: 0 auto;
+    width: 98%;
+}
+.formTable tr td
+{
+    border: 0px inset #FFF;
+    border-bottom: 1px inset #E8E8E8;
+    height: 25px;
+    padding-left: 5px;
+}
+.tdDesc
+{
+    background-color: #E6F0F2; /* #ADF4F7;      background-image: -moz-linear-gradient(left center, #FFFFFF 20%, #E6F0F2 100%);     background-image: -webkit-gradient(linear,left top,right top,color-stop(0.2, #FFFFFF),color-stop(1, #E6F0F2));*/
+}
+.tdValue
+{
+    background-color: #E6F0F2; /* #ADF4F7; */
+    background-image: -webkit-gradient(linear,right top,left top,color-stop(0.2, #FFFFFF),color-stop(1, #E6F0F2));
+    background-image: -moz-linear-gradient(right center,#FFFFFF 20%,#E6F0F2 100% );
+}

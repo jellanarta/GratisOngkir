@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="14bb7c21fa8b4730a2c605f856dc2010" Name="Diagram1" ZoomLevel="76" DisplayType="true">
+        <EntityTypeShape EntityType="TrainingModel.BookTransactionD" Width="2.375" PointX="6.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingModel.BookTransactionH" Width="2.125" PointX="3.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingModel.Cust" Width="1.875" PointX="0.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingModel.RefBook" Width="2.125" PointX="9.875" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="TrainingModel.FK__BOOK_TRAN__BOOK___32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingModel.FK__BOOK_TRAN__CUST___300424B4" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TrainingModel.Book" Width="1.5" PointX="12.875" PointY="2.125" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

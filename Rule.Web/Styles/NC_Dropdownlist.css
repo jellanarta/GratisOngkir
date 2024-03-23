@@ -1,0 +1,41 @@
+﻿/*
+    Created By  : Erwin Wibowo Harjono
+    Date        : March 07 2011
+    Purpose     : to modifying the visual look of New Confins's controls
+    Notes       : Not yet tested on Internet Explorer
+*/
+.ddlShortStyle
+{
+    width: 100px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+}
+.ddlMidStyle
+{
+    width: 170px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+}
+.ddlLongStyle
+{
+    width: 240px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+}
+.ddlInput
+{
+    width: 304px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+}
+.ddlMandatory
+{
+    font-family: Verdana;
+    font-size: 11px;
+    color: #4F4F4F;
+    background-color: #DAF2F7;
+}
